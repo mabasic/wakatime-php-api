@@ -18,7 +18,8 @@ class WakaTimeTest extends PHPUnit_Framework_TestCase {
         $this->project = getenv('WAKATIME_PROJECT');
 
         // Arrange
-        $this->wakaTime = new WakaTime(new Guzzle, $this->api_key);
+        $this->wakaTime = new WakaTime(new Guzzle);
+        $this->wakaTime->setApiKey($this->api_key);
     }
 
     /** @test */

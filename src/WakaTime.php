@@ -10,12 +10,34 @@ class WakaTime {
 
     protected $url = 'https://wakatime.com/api/v1';
 
-    public function __construct(Client $guzzle, $api_key)
+    public function __construct(Client $guzzle)
     {
         $this->guzzle = $guzzle;
+    }
 
+    /**
+     * @param mixed $api_key
+     */
+    public function setApiKey($api_key)
+    {
         $this->api_key = $api_key;
     }
+
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
+    public function getApiKey()
+    {
+        if( ! $this->api_key)
+        {
+            throw new \Exception('You have to set api_key first!');
+        }
+
+        return $this->api_key;
+    }
+
+
 
     /**
      * See: https://wakatime.com/api#users-current for details.
@@ -24,7 +46,7 @@ class WakaTime {
      */
     public function currentUser()
     {
-        return $this->guzzle->get("{$this->url}/users/current?api_key={$this->api_key}")->json();
+        return $this->guzzle->get("{$this->url}/users/current?api_key={$this->getApiKey()}")->json();
     }
 
     /**
@@ -39,7 +61,7 @@ class WakaTime {
     {
         if ($project !== null) $project = "&project={$project}";
 
-        return $this->guzzle->get("{$this->url}/summary/daily?start={$startDate}&end={$endDate}&api_key={$this->api_key}" . $project)->json();
+        return $this->guzzle->get("{$this->url}/summary/daily?start={$startDate}&end={$endDate}&api_key={$this->getApiKey()}" . $project)->json();
     }
 
     /**
