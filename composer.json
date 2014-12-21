@@ -3,7 +3,7 @@
   "description": "WakaTime API for PHP",
   "keywords": ["wakatime", "time tracking", "api"],
   "require": {
-    "php": ">=5.6",
+    "php": ">=5.4",
     "guzzlehttp/guzzle": "4.*"
   },
   "require-dev": {
