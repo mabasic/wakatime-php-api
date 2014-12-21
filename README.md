@@ -1,5 +1,7 @@
 # WakaTime PHP API
 
+[![Build Status](https://travis-ci.org/mabasic/wakatime-php-api.svg)](https://travis-ci.org/mabasic/wakatime-php-api)
+
 **WakaTime API for PHP**
 
 **Readme coming soon.**
