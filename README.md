@@ -1,6 +1,6 @@
 # WakaTime PHP API
 
-[![Latest Stable Version](https://poser.pugx.org/mabasic/wakatime-php-api/v/stable.svg)](https://packagist.org/packages/mabasic/wakatime-php-api) [![Total Downloads](https://poser.pugx.org/mabasic/wakatime-php-api/downloads.svg)](https://packagist.org/packages/mabasic/wakatime-php-api) [![Latest Unstable Version](https://poser.pugx.org/mabasic/wakatime-php-api/v/unstable.svg)](https://packagist.org/packages/mabasic/wakatime-php-api) [![License](https://poser.pugx.org/mabasic/wakatime-php-api/license.svg)](https://packagist.org/packages/mabasic/wakatime-php-api)[![Build Status](https://travis-ci.org/mabasic/wakatime-php-api.svg)](https://travis-ci.org/mabasic/wakatime-php-api)
+[![Build Status](https://travis-ci.org/mabasic/wakatime-php-api.svg)](https://travis-ci.org/mabasic/wakatime-php-api) [![Latest Stable Version](https://poser.pugx.org/mabasic/wakatime-php-api/v/stable.svg)](https://packagist.org/packages/mabasic/wakatime-php-api) [![Total Downloads](https://poser.pugx.org/mabasic/wakatime-php-api/downloads.svg)](https://packagist.org/packages/mabasic/wakatime-php-api) [![Latest Unstable Version](https://poser.pugx.org/mabasic/wakatime-php-api/v/unstable.svg)](https://packagist.org/packages/mabasic/wakatime-php-api) [![License](https://poser.pugx.org/mabasic/wakatime-php-api/license.svg)](https://packagist.org/packages/mabasic/wakatime-php-api)
 
 **WakaTime API for PHP**
 
