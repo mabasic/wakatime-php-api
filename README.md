@@ -84,7 +84,7 @@ $endDate = '12/21/2014';
 $hours = $wakaTime->getHoursLoggedFor($startDate, $endDate);
 ```
 
-### getHoursLoggedForLast
+#### getHoursLoggedForLast
 
 ```
 public function getHoursLoggedForLast($period, $project = null)
@@ -99,7 +99,7 @@ _You can optionally specify a project._
 $hours = $wakaTime->getHoursLoggedForLast('7 days');
 ```
 
-### getHoursLoggedForToday
+#### getHoursLoggedForToday
 
 ```
 public function getHoursLoggedForToday($project = null)
@@ -108,7 +108,7 @@ public function getHoursLoggedForToday($project = null)
 Returns hours logged today. 
 _You can optionally specify a project._
 
-### getHoursLoggedForYesterday
+#### getHoursLoggedForYesterday
 
 ```
 public function getHoursLoggedForYesterday($project = null)
@@ -117,7 +117,7 @@ public function getHoursLoggedForYesterday($project = null)
 Returns hours logged yesterday. 
 _You can optionally specify a project._
 
-### getHoursLoggedForLast7Days
+#### getHoursLoggedForLast7Days
 
 ```
 public function getHoursLoggedForLast7Days($project = null)
@@ -126,7 +126,7 @@ public function getHoursLoggedForLast7Days($project = null)
 Basic users can only see data for maximum 7 days. Become a Premium user to preserve all data history. 
 _You can still use any method as long as it is under 7 days._
 
-### getHoursLoggedForLast30Days
+#### getHoursLoggedForLast30Days
 
 ```
 public function getHoursLoggedForLast30Days($project = null)
@@ -135,7 +135,7 @@ public function getHoursLoggedForLast30Days($project = null)
 Calculates hours logged for last 30 days in history.
 _You can optionally specify a project._
 
-### getHoursLoggedForThisMonth
+#### getHoursLoggedForThisMonth
 
 ```
 public function getHoursLoggedForThisMonth($project = null)
@@ -144,7 +144,7 @@ public function getHoursLoggedForThisMonth($project = null)
 Calculates hours logged for this month.
 _You can optionally specify a project._
 
-### getHoursLoggedForLastMonth
+#### getHoursLoggedForLastMonth
 
 ```
 public function getHoursLoggedForLastMonth($project = null)
