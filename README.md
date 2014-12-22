@@ -4,7 +4,7 @@
 
 **WakaTime API for PHP**
 
-This is a PHP package for WakaTime API. It offers all the methods from [WakaTime API](https://wakatime.com/api) plus some additional methods for total hours logged.
+This is a PHP package for WakaTime API. It offers all the methods from [WakaTime API](https://wakatime.com/api) with additional methods for total hours logged.
 
 ## Planned Features
 
@@ -18,13 +18,11 @@ Add to your `composer.json`:
 "mabasic/wakatime-php-api": "~1.0"
 ```
 
-or type this from command line: 
+and run `composer update` or type this from command line: 
 
 ```
 composer require "mabasic/wakatime-php-api=~1.0"
 ```
-
-Then run `composer dump-autoload`.
 
 ## Usage
 
