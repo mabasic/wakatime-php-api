@@ -10,17 +10,21 @@ class WakaTime {
 
     protected $url = 'https://wakatime.com/api/v1';
 
-    public function __construct(Client $guzzle)
+    public function __construct(Client $guzzle, $api_key = null)
     {
         $this->guzzle = $guzzle;
+        $this->api_key = $api_key;
     }
 
     /**
      * @param mixed $api_key
+     * @return $this
      */
     public function setApiKey($api_key)
     {
         $this->api_key = $api_key;
+
+        return $this;
     }
 
     /**
@@ -29,15 +33,13 @@ class WakaTime {
      */
     public function getApiKey()
     {
-        if( ! $this->api_key)
+        if ( ! $this->api_key)
         {
             throw new \Exception('You have to set api_key first!');
         }
 
         return $this->api_key;
     }
-
-
 
     /**
      * See: https://wakatime.com/api#users-current for details.
