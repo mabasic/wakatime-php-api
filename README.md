@@ -6,6 +6,8 @@
 
 This is a PHP package for WakaTime API. It offers all the methods from [WakaTime API](https://wakatime.com/api) with additional methods for total hours logged.
 
+If you are using [Laravel](http://laravel.com/) check out [WakaTime Reports and Laravel](http://mariobasic.com/wakatime-reports-and-laravel/) on my blog.
+
 ## Planned Features
 
 - [ ] OAuth 2.0 authentication
