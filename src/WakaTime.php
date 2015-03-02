@@ -1,5 +1,5 @@
 <?php namespace Mabasic\WakaTime;
-
+use webignition\ReadableDuration\ReadableDuration;
 use GuzzleHttp\Client;
 
 class WakaTime {
@@ -8,12 +8,19 @@ class WakaTime {
 
     protected $api_key;
 
+    protected $type;
+
     protected $url = 'https://wakatime.com/api/v1';
 
     public function __construct(Client $guzzle, $api_key = null)
     {
         $this->guzzle = $guzzle;
         $this->api_key = $api_key;
+        $this->type = 'hours';
+    }
+
+    public function setType($type) {
+        $this->type = $type;
     }
 
     /**
@@ -192,6 +199,12 @@ class WakaTime {
         foreach ($response['data'] as $day)
         {
             $totalSeconds += $day['grand_total']['total_seconds'];
+        }
+
+        if($this->type != 'hours') {
+            $obj = new ReadableDuration;
+            $obj->setValueInSeconds($totalSeconds);
+            return $obj;
         }
 
         return (int) floor($totalSeconds / 3600);
