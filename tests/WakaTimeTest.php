@@ -15,7 +15,7 @@ class WakaTimeTest extends PHPUnit_Framework_TestCase {
 
     public function setUp()
     {
-        $this->api_key = getenv('WAKATIME_API_KEY');
+        $this->api_key = 'abbfea33-ac43-4492-94a1-693e02271f73';
         $this->project = getenv('WAKATIME_PROJECT');
 
         // Arrange
@@ -174,7 +174,8 @@ class WakaTimeTest extends PHPUnit_Framework_TestCase {
         $this->assertInternalType('array', $response);
     }
 
-    public function return_object_readableduration() {
+    /** @test */
+    public function it_returns_object_readableduration() {
         $this->wakaTime->setType('object');
         $response = $this->wakaTime->getHoursLoggedForThisMonth();
         $this->assertInstanceOf('ReadableDuration', $response);
