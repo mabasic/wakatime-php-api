@@ -2,6 +2,7 @@
 
 use GuzzleHttp\Client as Guzzle;
 use Mabasic\WakaTime\WakaTime;
+use webignition\ReadableDuration\ReadableDuration;
 
 
 class WakaTimeTest extends PHPUnit_Framework_TestCase {
@@ -171,6 +172,12 @@ class WakaTimeTest extends PHPUnit_Framework_TestCase {
         $response = $this->wakaTime->dailySummary($startDate, $endDate, $project);
 
         $this->assertInternalType('array', $response);
+    }
+
+    public function return_object_readableduration() {
+        $this->wakaTime->setType('object');
+        $response = $this->wakaTime->getHoursLoggedForThisMonth();
+        $this->assertInstanceOf('ReadableDuration', $response);
     }
 }
 
