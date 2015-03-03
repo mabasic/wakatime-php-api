@@ -14,7 +14,7 @@ class WakaTimeTest extends PHPUnit_Framework_TestCase {
 
     public function setUp()
     {
-        $this->api_key = 'abbfea33-ac43-4492-94a1-693e02271f73';
+        $this->api_key = getenv('WAKATIME_API_KEY');
         $this->project = getenv('WAKATIME_PROJECT');
 
         // Arrange
