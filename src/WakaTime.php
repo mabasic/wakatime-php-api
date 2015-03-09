@@ -90,6 +90,28 @@ class WakaTime {
     }
 
     /**
+     * Gets the last sunday date and the next saturday date from a given date
+     * @param  date $date the starting date
+     * @return array       start date, last date
+     */
+    private function x_week_range($date) {
+        $ts = strtotime($date);
+        $start = (date('w', $ts) == 0) ? $ts : strtotime('last sunday', $ts);
+        return array(date('Y-m-d', $start),
+                     date('Y-m-d', strtotime('next saturday', $start)));
+    }
+
+    /**
+     * Calculates hours logged in this week (from last sunday to next saturday) ...
+     *
+     * @return int
+     */
+    public function getHoursLoggedForThisWeek() {
+        list($start_date, $end_date) = $this->x_week_range(date('Y-m-d'));
+        return $this->getHoursLoggedFor($end_date, $start_date, null);
+    }
+
+    /**
      * Calculates hours logged in last xy days, months ...
      * You can optionally specify a project.
      *
