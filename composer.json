@@ -4,7 +4,8 @@
   "keywords": ["wakatime", "time tracking", "api"],
   "require": {
     "php": ">=5.4",
-    "guzzlehttp/guzzle": "4.*"
+    "guzzlehttp/guzzle": "4.*",
+    "webignition/readable-duration": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "4.4.*",

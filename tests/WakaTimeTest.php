@@ -172,5 +172,12 @@ class WakaTimeTest extends PHPUnit_Framework_TestCase {
 
         $this->assertInternalType('array', $response);
     }
+
+    /** @test */
+    public function it_returns_object_readableduration() {
+        $this->wakaTime->setType('object');
+        $response = $this->wakaTime->getHoursLoggedForThisMonth();
+        $this->assertInstanceOf('\webignition\ReadableDuration\ReadableDuration', $response);
+    }
 }
 

@@ -1,5 +1,5 @@
 <?php namespace Mabasic\WakaTime;
-
+use webignition\ReadableDuration\ReadableDuration;
 use GuzzleHttp\Client;
 
 class WakaTime {
@@ -8,12 +8,19 @@ class WakaTime {
 
     protected $api_key;
 
+    protected $type;
+
     protected $url = 'https://wakatime.com/api/v1';
 
     public function __construct(Client $guzzle, $api_key = null)
     {
         $this->guzzle = $guzzle;
         $this->api_key = $api_key;
+        $this->type = 'hours';
+    }
+
+    public function setType($type) {
+        $this->type = $type;
     }
 
     /**
@@ -80,6 +87,28 @@ class WakaTime {
         $response = $this->dailySummary($endDate, $startDate, $project);
 
         return $this->calculateHoursLogged($response);
+    }
+
+    /**
+     * Gets the last sunday date and the next saturday date from a given date
+     * @param  date $date the starting date
+     * @return array       start date, last date
+     */
+    private function x_week_range($date) {
+        $ts = strtotime($date);
+        $start = (date('w', $ts) == 0) ? $ts : strtotime('last sunday', $ts);
+        return array(date('Y-m-d', $start),
+                     date('Y-m-d', strtotime('next saturday', $start)));
+    }
+
+    /**
+     * Calculates hours logged in this week (from last sunday to next saturday) ...
+     *
+     * @return int
+     */
+    public function getHoursLoggedForThisWeek() {
+        list($start_date, $end_date) = $this->x_week_range(date('Y-m-d'));
+        return $this->getHoursLoggedFor($end_date, $start_date, null);
     }
 
     /**
@@ -192,6 +221,12 @@ class WakaTime {
         foreach ($response['data'] as $day)
         {
             $totalSeconds += $day['grand_total']['total_seconds'];
+        }
+
+        if($this->type != 'hours') {
+            $obj = new ReadableDuration;
+            $obj->setValueInSeconds($totalSeconds);
+            return $obj;
         }
 
         return (int) floor($totalSeconds / 3600);
