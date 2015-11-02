@@ -16,19 +16,19 @@ If you are using [Laravel](http://laravel.com/) check out [WakaTime Reports and 
 
 Add to your `composer.json`:
 
-```
+```php
 "mabasic/wakatime-php-api": "~1.0"
 ```
 
 and run `composer update` or type this from command line:
 
-```
+```php
 composer require "mabasic/wakatime-php-api=~1.0"
 ```
 
 ## Usage
 
-```
+```php
 <?php
 
 use GuzzleHttp\Client as Guzzle;
@@ -48,7 +48,7 @@ You can get your Api Key from your [settings page](https://wakatime.com/settings
 
 #### currentUser
 
-```
+```php
 $wakatime->currentUser()
 ```
 
@@ -56,7 +56,7 @@ See: https://wakatime.com/api#users-current for details.
 
 #### dailySummary
 
-```
+```php
 $wakatime->dailySummary($startDate, $endDate, $project = null)
 ```
 
@@ -64,7 +64,7 @@ See: https://wakatime.com/api#summary-daily for details.
 
 #### stats
 
-```
+```php
 $wakatime->stats($range, $project = null)
 ```
 
@@ -74,7 +74,7 @@ See: https://wakatime.com/developers#stats for details.
 
 #### getHoursLoggedFor
 
-```
+```php
 $wakatime->getHoursLoggedFor($startDate, $endDate, $project = null)
 ```
 
@@ -85,7 +85,7 @@ _You can optionally specify a project._
 
 **Example:**
 
-```
+```php
 $startDate = '11/21/2014';
 $endDate = '12/21/2014';
 
@@ -94,7 +94,7 @@ $hours = $wakaTime->getHoursLoggedFor($startDate, $endDate);
 
 #### getHoursLoggedForLast
 
-```
+```php
 public function getHoursLoggedForLast($period, $project = null)
 ```
 
@@ -103,13 +103,13 @@ _You can optionally specify a project._
 
 **Example:**
 
-```
+```php
 $hours = $wakaTime->getHoursLoggedForLast('7 days');
 ```
 
 #### getHoursLoggedForToday
 
-```
+```php
 public function getHoursLoggedForToday($project = null)
 ```
 
@@ -118,7 +118,7 @@ _You can optionally specify a project._
 
 #### getHoursLoggedForYesterday
 
-```
+```php
 public function getHoursLoggedForYesterday($project = null)
 ```
 
@@ -127,7 +127,7 @@ _You can optionally specify a project._
 
 #### getHoursLoggedForLast7Days
 
-```
+```php
 public function getHoursLoggedForLast7Days($project = null)
 ```
 
@@ -136,7 +136,7 @@ _You can still use any method as long as it is under 7 days._
 
 #### getHoursLoggedForLast30Days
 
-```
+```php
 public function getHoursLoggedForLast30Days($project = null)
 ```
 
@@ -145,7 +145,7 @@ _You can optionally specify a project._
 
 #### getHoursLoggedForThisMonth
 
-```
+```php
 public function getHoursLoggedForThisMonth($project = null)
 ```
 
@@ -154,7 +154,7 @@ _You can optionally specify a project._
 
 #### getHoursLoggedForLastMonth
 
-```
+```php
 public function getHoursLoggedForLastMonth($project = null)
 ```
 
