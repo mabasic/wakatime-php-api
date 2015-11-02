@@ -20,7 +20,7 @@ Add to your `composer.json`:
 "mabasic/wakatime-php-api": "~1.0"
 ```
 
-and run `composer update` or type this from command line: 
+and run `composer update` or type this from command line:
 
 ```
 composer require "mabasic/wakatime-php-api=~1.0"
@@ -39,9 +39,9 @@ $wakaTime->setApiKey($your_api_key_for_wakatime);
 ```
 
 You can get your Api Key from your [settings page](https://wakatime.com/settings).
- 
+
 > Be sure to set your Api Key before using any of the methods because you will get an Exception.
- 
+
 ## Methods
 
 ### Official methods
@@ -62,6 +62,14 @@ $wakatime->dailySummary($startDate, $endDate, $project = null)
 
 See: https://wakatime.com/api#summary-daily for details.
 
+#### stats
+
+```
+$wakatime->stats($range, $project = null)
+```
+
+See: https://wakatime.com/developers#stats for details.
+
 ### Additional methods
 
 #### getHoursLoggedFor
@@ -70,7 +78,7 @@ See: https://wakatime.com/api#summary-daily for details.
 $wakatime->getHoursLoggedFor($startDate, $endDate, $project = null)
 ```
 
-Calculates hours logged for a specific period. 
+Calculates hours logged for a specific period.
 _You can optionally specify a project._
 
 > `$startDate` must be lower than `$endDate`
@@ -90,7 +98,7 @@ $hours = $wakaTime->getHoursLoggedFor($startDate, $endDate);
 public function getHoursLoggedForLast($period, $project = null)
 ```
 
-Calculates hours logged in last xy days, months. 
+Calculates hours logged in last xy days, months.
 _You can optionally specify a project._
 
 **Example:**
@@ -105,7 +113,7 @@ $hours = $wakaTime->getHoursLoggedForLast('7 days');
 public function getHoursLoggedForToday($project = null)
 ```
 
-Returns hours logged today. 
+Returns hours logged today.
 _You can optionally specify a project._
 
 #### getHoursLoggedForYesterday
@@ -114,7 +122,7 @@ _You can optionally specify a project._
 public function getHoursLoggedForYesterday($project = null)
 ```
 
-Returns hours logged yesterday. 
+Returns hours logged yesterday.
 _You can optionally specify a project._
 
 #### getHoursLoggedForLast7Days
@@ -123,7 +131,7 @@ _You can optionally specify a project._
 public function getHoursLoggedForLast7Days($project = null)
 ```
 
-Basic users can only see data for maximum 7 days. Become a Premium user to preserve all data history. 
+Basic users can only see data for maximum 7 days. Become a Premium user to preserve all data history.
 _You can still use any method as long as it is under 7 days._
 
 #### getHoursLoggedForLast30Days
