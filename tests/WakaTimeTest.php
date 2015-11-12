@@ -151,6 +151,28 @@ class WakaTimeTest extends PHPUnit_Framework_TestCase {
     }
 
     /** @test */
+    public function it_returns_user_stats_for_range()
+    {
+        // Act
+        $range = 'last_30_days';
+        $response = $this->wakaTime->stats($range, $this->project);
+
+        // Assert
+        $this->assertInternalType('array', $response);
+    }
+
+    /** @test */
+    public function it_returns_user_stats_for_range_and_project()
+    {
+        // Act
+        $range = 'last_30_days';
+        $response = $this->wakaTime->stats($range, $this->project);
+
+        // Assert
+        $this->assertInternalType('array', $response);
+    }
+
+    /** @test */
     public function it_returns_the_daily_summary_for_period()
     {
         $startDate = '11/21/2014';

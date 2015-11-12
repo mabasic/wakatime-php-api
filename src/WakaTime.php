@@ -67,6 +67,20 @@ class WakaTime {
     }
 
     /**
+     * See: https://wakatime.com/developers#stats for details.
+     *
+     * @param $range
+     * @param null $project
+     * @return mixed
+     */
+    public function stats($range, $project = null)
+    {
+    	if ($project !== null) $project = "&project={$project}";
+
+    	return $this->guzzle->get("{$this->url}/users/current/stats/{$range}?api_key={$this->getApiKey()}" . $project)->json();
+    }
+
+    /**
      * Calculates hours logged for a specific period.
      * You can optionally specify a project.
      *
