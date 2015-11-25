@@ -63,7 +63,7 @@ class WakaTime {
     {
         if ($project !== null) $project = "&project={$project}";
 
-        return $this->guzzle->get("{$this->url}/summaries?start={$startDate}&end={$endDate}&api_key={$this->getApiKey()}" . $project)->json();
+        return $this->guzzle->get("{$this->url}/users/current/summaries?start={$startDate}&end={$endDate}&api_key={$this->getApiKey()}" . $project)->json();
     }
 
     /**
