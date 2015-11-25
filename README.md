@@ -4,7 +4,7 @@
 
 **WakaTime API for PHP**
 
-This is a PHP package for WakaTime API. It offers all the methods from [WakaTime API](https://wakatime.com/api) with additional methods for total hours logged.
+This is a PHP package for WakaTime API. It offers all the methods from [WakaTime API](https://wakatime.com/developers) with additional methods for total hours logged.
 
 If you are using [Laravel](http://laravel.com/) check out [WakaTime Reports and Laravel](http://mariobasic.com/wakatime-reports-and-laravel/) on my blog.
 
@@ -52,7 +52,7 @@ You can get your Api Key from your [settings page](https://wakatime.com/settings
 $wakatime->currentUser()
 ```
 
-See: https://wakatime.com/api#users-current for details.
+See: https://wakatime.com/developers/#users for details.
 
 #### dailySummary
 
@@ -60,7 +60,7 @@ See: https://wakatime.com/api#users-current for details.
 $wakatime->dailySummary($startDate, $endDate, $project = null)
 ```
 
-See: https://wakatime.com/api#summary-daily for details.
+See: https://wakatime.com/developers/#summaries for details.
 
 #### stats
 
@@ -68,7 +68,7 @@ See: https://wakatime.com/api#summary-daily for details.
 $wakatime->stats($range, $project = null)
 ```
 
-See: https://wakatime.com/developers#stats for details.
+See: https://wakatime.com/developers/#stats for details.
 
 ### Additional methods
 
