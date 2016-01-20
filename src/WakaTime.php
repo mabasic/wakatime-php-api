@@ -89,7 +89,7 @@ class WakaTime {
      */
     public function heartbeats($date, $show = null)
     {
-        if ($show !== null) $show = "&show={$project}";
+        if ($show !== null) $show = "&show={$show}";
 
         return $this->guzzle->get("{$this->url}/users/current/heartbeats?date={$date}&api_key={$this->getApiKey()}" . $show)->json();
     }
