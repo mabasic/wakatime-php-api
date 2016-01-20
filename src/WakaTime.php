@@ -79,6 +79,20 @@ class WakaTime {
 
     	return $this->guzzle->get("{$this->url}/users/current/stats/{$range}?api_key={$this->getApiKey()}" . $project)->json();
     }
+    
+    /**
+     * See: https://wakatime.com/developers#heartbeats for details.
+     *
+     * @param $date
+     * @param $show
+     * @return mixed
+     */
+    public function heartbeats($date, $show = null)
+    {
+        if ($show !== null) $show = "&show={$project}";
+
+        return $this->guzzle->get("{$this->url}/users/current/heartbeats?date={$date}&api_key={$this->getApiKey()}" . $show)->json();
+    }
 
     /**
      * Calculates hours logged for a specific period.
