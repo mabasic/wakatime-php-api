@@ -4,26 +4,18 @@
 
 **WakaTime API for PHP**
 
-This is a PHP package for WakaTime API. It offers all the methods from [WakaTime API](https://wakatime.com/developers) with additional methods for total hours logged.
+This is a PHP package for WakaTime API. It supports resource endpoints from [WakaTime API](https://wakatime.com/developers) with additional helper methods for hours logged.
 
-If you are using [Laravel](http://laravel.com/) check out [WakaTime Reports and Laravel](http://mariobasic.com/wakatime-reports-and-laravel/) on my blog.
+If you are using [Laravel](http://laravel.com/) check out [WakaTime Reports and Laravel](http://laravelista.com/wakatime-reports-and-laravel/).
 
-## Planned Features
-
-- [ ] OAuth 2.0 authentication
+If you find that some resource endpoints are missing feel free to send me a PR. *(Be sure to include tests for your code)*
 
 ## Installation
 
-Add to your `composer.json`:
+Type this from command line:
 
 ```php
-"mabasic/wakatime-php-api": "~1.0"
-```
-
-and run `composer update` or type this from command line:
-
-```php
-composer require "mabasic/wakatime-php-api=~1.0"
+composer require mabasic/wakatime-php-api
 ```
 
 ## Usage
@@ -34,35 +26,34 @@ composer require "mabasic/wakatime-php-api=~1.0"
 use GuzzleHttp\Client as Guzzle;
 use Mabasic\WakaTime\WakaTime;
 
-$wakatime = new WakaTime(new Guzzle);
-$wakaTime->setApiKey($your_api_key_for_wakatime);
+$wakatime = new WakaTime(new Guzzle, $your_api_key_for_wakatime);
 ```
 
 You can get your Api Key from your [settings page](https://wakatime.com/settings).
 
-> Be sure to set your Api Key before using any of the methods because you will get an Exception.
+## Resource Endpoints
 
-## Methods
-
-### Official methods
-
-#### currentUser
+#### Users
 
 ```php
 $wakatime->currentUser()
+
+// or
+
+$wakatime->users('username');
 ```
 
 See: https://wakatime.com/developers/#users for details.
 
-#### dailySummary
+#### Summaries
 
 ```php
-$wakatime->dailySummary($startDate, $endDate, $project = null)
+$wakatime->summaries($startDate, $endDate, $project = null)
 ```
 
 See: https://wakatime.com/developers/#summaries for details.
 
-#### stats
+#### Stats
 
 ```php
 $wakatime->stats($range, $project = null)
@@ -70,7 +61,17 @@ $wakatime->stats($range, $project = null)
 
 See: https://wakatime.com/developers/#stats for details.
 
-### Additional methods
+#### Heartbeats
+
+```php
+$date = '01/22/2016';
+
+$wakatime->heartbeats($date);
+```
+
+See: https://wakatime.com/developers#heartbeats for details.
+
+## Helper methods aka Reports aka Shortcuts
 
 #### getHoursLoggedFor
 
@@ -163,22 +164,10 @@ _You can optionally specify a project._
 
 ---
 
-## Testing instructions
+## For developers only
 
-For testing purposes set these environment variables before running tests:
-
-On windows use:
+Copy `.env.example` file to `.env` and set your api key and project name before running tests with:
 
 ```
-setx WAKATIME_API_KEY xyz
-setx WAKATIME_PROJECT xyz
+vendor/bin/phpunit
 ```
-
-On Linux use:
-
-```
-export WAKATIME_API_KEY=xyz
-export WAKATIME_PROJECT=xyz
-```
-
-_Of course replace `xyz` with correct values._
