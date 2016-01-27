@@ -70,15 +70,19 @@ class WakaTime
      * @param $startDate
      * @param $endDate
      * @param null $project
+     * @param null|string $branches
      * @return mixed
      */
-    public function summaries($startDate, $endDate, $project = null)
+    public function summaries($startDate, $endDate, $project = null, $branches = null)
     {
         if ($project !== null) {
             $project = "&project={$project}";
         }
+        if ($branches !== null) {
+            $branches = "&branches={$branches}";
+        }
 
-        return $this->makeRequest("users/current/summaries?start={$startDate}&end={$endDate}" . $project);
+        return $this->makeRequest("users/current/summaries?start={$startDate}&end={$endDate}" . $project . $branches);
     }
 
     /**
