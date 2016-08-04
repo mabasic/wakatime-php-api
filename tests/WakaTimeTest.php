@@ -223,8 +223,9 @@ class WakaTimeTest extends PHPUnit_Framework_TestCase
     public function it_returns_heartbeats_for_given_day()
     {
         $date = '01/22/2016';
+        $show = 'time,entity,type,project,language,branch,is_write,is_debugging';
 
-        $response = $this->wakatime->heartbeats($date);
+        $response = $this->wakatime->heartbeats($date, $show);
 
         $this->assertInternalType('array', $response);
     }
