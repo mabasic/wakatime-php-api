@@ -111,7 +111,7 @@ class WakaTime
     public function heartbeats($date, $show = null)
     {
         if ($show !== null) {
-            $show = "?show={$show}";
+            $show = "&show={$show}";
         }
 
         return $this->makeRequest("users/current/heartbeats?date={$date}" . $show);
