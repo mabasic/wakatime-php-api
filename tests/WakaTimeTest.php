@@ -229,4 +229,20 @@ class WakaTimeTest extends PHPUnit_Framework_TestCase
 
         $this->assertInternalType('array', $response);
     }
+
+    /**
+     * Durations
+     */
+
+    /** @test */
+    public function it_returns_durations_for_given_day()
+    {
+        $date     = '01/22/2016';
+        $project  = $this->project;
+        $branches = null;
+
+        $response = $this->wakatime->durations($date, $project, $branches);
+
+        $this->assertInternalType('array', $response);
+    }
 }
