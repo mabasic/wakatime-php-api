@@ -111,10 +111,31 @@ class WakaTime
     public function heartbeats($date, $show = null)
     {
         if ($show !== null) {
-            $show = "?show={$show}";
+            $show = "&show={$show}";
         }
 
         return $this->makeRequest("users/current/heartbeats?date={$date}" . $show);
+    }
+
+    /**
+     * See https://wakatime.com/developers#durations for details.
+     *
+     * @param  [type] $date
+     * @param  string $project
+     * @param  string $branches
+     * @return [type]
+     */
+    public function durations($date, $project = null, $branches = NULL)
+    {
+        if ($project !== null) {
+            $project = "&project={$project}";
+        }
+
+        if ($branches !== null) {
+            $branches = "&branches={$branches}";
+        }
+
+        return $this->makeRequest("users/current/durations?date={$date}" . $project . $branches);
     }
 
 }
