@@ -6,7 +6,7 @@
 
 This is a PHP package for WakaTime API. It supports resource endpoints from [WakaTime API](https://wakatime.com/developers) with additional helper methods for hours logged.
 
-If you are using [Laravel](http://laravel.com/) check out [WakaTime Reports and Laravel](http://laravelista.com/wakatime-reports-and-laravel/).
+If you are using [Laravel](http://laravel.com/) check out [WakaTime Reports and Laravel](http://laravelista.com/posts/wakatime-reports-and-laravel/).
 
 If you find that some resource endpoints are missing feel free to send me a PR. *(Be sure to include tests for your code)*
 
