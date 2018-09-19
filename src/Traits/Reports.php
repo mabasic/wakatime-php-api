@@ -14,7 +14,7 @@ trait Reports {
      */
     public function getHoursLoggedFor($startDate, $endDate, $project = null, $branches = null)
     {
-        $response = $this->summaries($endDate, $startDate, $project, $branches);
+        $response = $this->summaries($startDate, $endDate, $project, $branches);
 
         return $this->calculateHoursLogged($response);
     }
