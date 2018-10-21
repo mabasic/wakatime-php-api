@@ -30,10 +30,10 @@ trait Reports {
      */
     public function getHoursLoggedForLast($period, $project = null, $branches = null)
     {
-        $todayDate = date('m/d/Y');
-        $endDate   = date_format(date_sub(date_create($todayDate), date_interval_create_from_date_string($period)), 'm/d/Y');
+        $endDate = date('m/d/Y');
+        $startDate   = date_format(date_sub(date_create($todayDate), date_interval_create_from_date_string($period)), 'm/d/Y');
 
-        return $this->getHoursLoggedFor($todayDate, $endDate, $project, $branches);
+        return $this->getHoursLoggedFor($startDate, $endDate, $project, $branches);
     }
 
     /**
@@ -100,8 +100,8 @@ trait Reports {
      */
     public function getHoursLoggedForThisMonth($project = null, $branches = null)
     {
-        $endDate   = date('m/01/Y');
-        $startDate = date('m/d/Y');
+        $startDate   = date('m/01/Y');
+        $endDate = date('m/d/Y');
 
         return $this->getHoursLoggedFor($startDate, $endDate, $project, $branches);
     }
@@ -116,8 +116,8 @@ trait Reports {
      */
     public function getHoursLoggedForLastMonth($project = null, $branches = null)
     {
-        $endDate   = date_format(date_sub(date_create(), date_interval_create_from_date_string('1 month')), 'm/01/Y');
-        $startDate = date_format(date_sub(date_create(), date_interval_create_from_date_string('1 month')), 'm/t/Y');
+        $startDate   = date_format(date_sub(date_create(), date_interval_create_from_date_string('1 month')), 'm/01/Y');
+        $endDate = date_format(date_sub(date_create(), date_interval_create_from_date_string('1 month')), 'm/t/Y');
 
         return $this->getHoursLoggedFor($startDate, $endDate, $project, $branches);
     }
