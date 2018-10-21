@@ -31,7 +31,7 @@ trait Reports {
     public function getHoursLoggedForLast($period, $project = null, $branches = null)
     {
         $endDate = date('m/d/Y');
-        $startDate   = date_format(date_sub(date_create($todayDate), date_interval_create_from_date_string($period)), 'm/d/Y');
+        $startDate   = date_format(date_sub(date_create($endDate), date_interval_create_from_date_string($period)), 'm/d/Y');
 
         return $this->getHoursLoggedFor($startDate, $endDate, $project, $branches);
     }
